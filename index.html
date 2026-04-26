@@ -16,18 +16,22 @@
 }
 
 * {box-sizing:border-box;}
-body {margin:0;background:var(--bg);color:var(--text);font-family:Inter;}
-a {color:inherit;text-decoration:none;}
+body {
+  margin: 20px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter;
+  border: 1px solid var(--line);
+}
 
-.container {width:90%;max-width:1200px;margin:auto;}
+.container {
+  width: min(100% - 80px, 1100px);
+  margin: 0 auto;
+}
 
 header {
-  position:fixed;
-  width:100%;
-  top:0;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--line);
+  background: transparent;
+  border-bottom: 1px solid var(--line);
 }
 
 .nav {
@@ -41,10 +45,9 @@ header {
 .nav a:hover {color:#fff;}
 
 .hero {
-  height:100vh;
-  background:url("https://images.unsplash.com/photo-1516035069371-29a1b244cc32") center/cover;
-  display:flex;
-  align-items:center;
+  min-height: auto;
+  padding: 120px 0 80px;
+  background: none;
 }
 
 .hero-overlay {
@@ -60,10 +63,8 @@ header {
 }
 
 .hero h1 {
-  font-family:Oswald;
-  font-size:80px;
-  line-height:0.9;
-  margin:0;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.1;
 }
 
 .hero p {
@@ -78,7 +79,11 @@ header {
   border:1px solid var(--line);
 }
 
-section {padding:80px 0;border-top:1px solid var(--line);}
+section {
+  padding: 80px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
 
 .grid-3 {
   display:grid;
@@ -86,9 +91,11 @@ section {padding:80px 0;border-top:1px solid var(--line);}
   gap:20px;
 }
 
-.card img {width:100%;}
-.card h3 {margin:10px 0 5px;}
-.card p {color:var(--muted);}
+.card {
+  border: 1px solid var(--line);
+  padding: 16px;
+  background: transparent;
+}
 
 .clients {
   display:flex;
@@ -181,12 +188,11 @@ footer {
 
 <section class="container">
   <h3>Clients & Collaborators</h3>
-  <div class="clients">
-    <div>MassArt</div>
-    <div>Veracode</div>
-    <div>miniPCR</div>
-    <div>and more</div>
-  </div>
+ <div class="clients">
+  <div>MassArt</div>
+  <div>Veracode</div>
+  <div>miniPCR</div>
+</div>
 </section>
 
 <section id="about" class="container about">
