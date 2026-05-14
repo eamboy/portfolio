@@ -1,229 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Erielle Amboy | Video Editor</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <title>Erielle Amboy | Video Portfolio</title>
 
-<style>
-:root {
-  --bg:#050505;
-  --text:#f5f5f5;
-  --muted:#aaa;
-  --line:rgba(255,255,255,0.1);
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-* {box-sizing:border-box;}
-body {
-  margin: 20px;
-  background: var(--bg);
-  color: var(--text);
-  font-family: Inter;
-  border: 1px solid var(--line);
-}
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-.container {
-  width: min(100% - 80px, 1100px);
-  margin: 0 auto;
-}
+  <style>
 
-header {
-  background: transparent;
-  border-bottom: 1px solid var(--line);
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.nav {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px 0;
-}
+    body {
+      background: #070707;
+      color: #f5f5f5;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
 
-.nav a {margin-left:20px;color:var(--muted);}
-.nav a:hover {color:#fff;}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-.hero {
-  min-height: auto;
-  padding: 120px 0 80px;
-  background: none;
-}
+    /* NAV */
 
-.hero-overlay {
-  width:100%;
-  height:100%;
-  background:linear-gradient(to right, rgba(0,0,0,0.8), transparent);
-  display:flex;
-  align-items:center;
-}
+    nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 32px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
 
-.hero-content {
-  padding-left:5%;
-}
+    .logo {
+      font-size: 14px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
 
-.hero h1 {
-  font-size: clamp(36px, 5vw, 64px);
-  line-height: 1.1;
-}
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
 
-.hero p {
-  max-width:400px;
-  color:var(--muted);
-}
+    /* HERO */
 
-.button {
-  display:inline-block;
-  margin-top:20px;
-  padding:12px 20px;
-  border:1px solid var(--line);
-}
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
 
-section {
-  padding: 80px 0;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
+    .hero video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.45);
+    }
 
-.grid-3 {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.2),
+        rgba(0,0,0,0.7)
+      );
+    }
 
-.card {
-  border: 1px solid var(--line);
-  padding: 16px;
-  background: transparent;
-}
+    .hero-content {
+      position: absolute;
+      bottom: 12%;
+      left: 60px;
+      max-width: 700px;
+      z-index: 5;
+    }
 
-.clients {
-  display:flex;
-  justify-content:space-between;
-  opacity:0.7;
-  flex-wrap:wrap;
-}
+    .hero-content h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(4rem, 8vw, 8rem);
+      line-height: 0.95;
+      margin-bottom: 24px;
+    }
 
-.clients div {font-size:20px;}
+    .hero-content p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      max-width: 600px;
+      color: rgba(255,255,255,0.8);
+    }
 
-.about {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-}
+    /* SECTION */
 
-.tools {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-}
+    section {
+      padding: 120px 60px;
+    }
 
-.tool {
-  border:1px solid var(--line);
-  padding:15px;
-  text-align:center;
-}
+    .section-title {
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+      color: rgba(255,255,255,0.5);
+    }
 
-footer {
-  border-top:1px solid var(--line);
-  padding:30px 0;
-  display:flex;
-  justify-content:space-between;
-  color:var(--muted);
-}
+    .about-text {
+      max-width: 800px;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.82);
+    }
 
-@media(max-width:900px){
-  .grid-3, .about {grid-template-columns:1fr;}
-  .hero h1 {font-size:50px;}
-}
-</style>
+    /* WORK GRID */
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .work-card {
+      background: #111;
+      overflow: hidden;
+      transition: 0.4s ease;
+    }
+
+    .work-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .work-card img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .work-info {
+      padding: 24px;
+    }
+
+    .work-info h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .work-info p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.95rem;
+    }
+
+    /* CLIENTS */
+
+    .clients {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 40px;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.85rem;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      text-align: center;
+      padding-bottom: 160px;
+    }
+
+    .contact h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      margin-bottom: 24px;
+    }
+
+    .contact p {
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 32px;
+    }
+
+    .contact a {
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 14px 28px;
+      display: inline-block;
+      transition: 0.3s ease;
+    }
+
+    .contact a:hover {
+      background: white;
+      color: black;
+    }
+
+    @media (max-width: 768px) {
+
+      nav {
+        padding: 24px;
+      }
+
+      .hero-content {
+        left: 24px;
+        right: 24px;
+      }
+
+      section {
+        padding: 80px 24px;
+      }
+
+      .hero-content h1 {
+        font-size: 4rem;
+      }
+
+      .contact h2 {
+        font-size: 3rem;
+      }
+
+    }
+
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div class="container nav">
-    <div>ERIELLE AMBOY</div>
-    <div>
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-</header>
+  <nav>
+    <div class="logo">ERIELLE AMBOY</div>
 
-<section class="hero">
-  <div class="hero-overlay">
+    <div class="nav-links">
+      <a href="#">Work</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+
+    <video autoplay muted loop playsinline>
+      <source src="reel.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-overlay"></div>
+
     <div class="hero-content">
-      <p>VIDEO EDITOR & CREATIVE PRODUCER</p>
-      <h1>STORYTELLING<br>THAT CONNECTS.</h1>
-      <p>I create compelling content for brands, social, and film.</p>
-      <a class="button" href="#work">WATCH REEL</a>
-    </div>
-  </div>
-</section>
+      <h1>Visual Storytelling Through Cinema</h1>
 
-<section id="work" class="container">
-  <h2>Featured Work</h2>
-  <div class="grid-3">
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3">
-      <h3>Commercial & Brand</h3>
-      <p>Campaign and branded storytelling.</p>
+      <p>
+        Boston-based filmmaker, editor, and creative producer creating cinematic work for brands, artists, and institutions.
+      </p>
     </div>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f">
-      <h3>Social / Short Form</h3>
-      <p>Content built for engagement.</p>
+  </section>
+
+  <section>
+
+    <div class="section-title">Who I Am</div>
+
+    <div class="about-text">
+      I create cinematic branded content, documentaries, event films, and social campaigns focused on emotion, atmosphere, and visual identity.
     </div>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728">
-      <h3>Narrative & Film</h3>
-      <p>Cinematic storytelling.</p>
+  </section>
+
+  <section>
+
+    <div class="section-title">Selected Work</div>
+
+    <div class="work-grid">
+
+      <div class="work-card">
+        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200&auto=format&fit=crop" />
+
+        <div class="work-info">
+          <h3>miniPCR Digital</h3>
+          <p>Educational Campaign</p>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1200&auto=format&fit=crop" />
+
+        <div class="work-info">
+          <h3>MassArt</h3>
+          <p>Brand Storytelling</p>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" />
+
+        <div class="work-info">
+          <h3>Reebok x Brainchild</h3>
+          <p>Panel & Event Coverage</p>
+        </div>
+      </div>
+
     </div>
-  </div>
-</section>
 
-<section class="container">
-  <h3>Clients & Collaborators</h3>
- <div class="clients">
-  <div>MassArt</div>
-  <div>Veracode</div>
-  <div>miniPCR</div>
-</div>
-</section>
+  </section>
 
-<section id="about" class="container about">
-  <div>
-    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4">
-  </div>
-  <div>
-    <h2>About Me</h2>
-    <p>I’m a Boston-based video editor and creative producer focused on storytelling and performance.</p>
+  <section>
 
-    <h3>Tools</h3>
-    <div class="tools">
-      <div class="tool">Premiere</div>
-      <div class="tool">After Effects</div>
-      <div class="tool">Resolve</div>
-      <div class="tool">FCP</div>
-      <div class="tool">Soundly</div>
-      <div class="tool">Frame.io</div>
+    <div class="section-title">Clients & Collaborators</div>
+
+    <div class="clients">
+      <div>MassArt</div>
+      <div>miniPCR</div>
+      <div>Apple</div>
+      <div>Reebok</div>
+      <div>Brainchild</div>
     </div>
-  </div>
-</section>
 
-<section id="contact" class="container">
-  <h2>Contact</h2>
-  <p>amboyeri20@gmail.com</p>
-</section>
+  </section>
 
-<footer class="container">
-  <div>© 2026 Erielle Amboy</div>
-  <div>LinkedIn • Instagram • Vimeo</div>
-</footer>
+  <section class="contact">
+
+    <h2>Let’s Create Something Meaningful</h2>
+
+    <p>
+      Available for freelance projects, collaborations, and creative partnerships.
+    </p>
+
+    <a href="mailto:erielleamboy@icloud.com">
+      Contact Me
+    </a>
+
+  </section>
 
 </body>
 </html>
