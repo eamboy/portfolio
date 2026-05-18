@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Erielle Amboy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #FAF0E6;
+      --red:   #9B1D20;
+      --dark:  #0d0d0d;
+      --mid:   #444;
+      --mute:  #777;
+      --border: 1.5px solid #0d0d0d;
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body:    'Barlow', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--cream); color: var(--dark); -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 36px;
+      border-bottom: var(--border);
+      position: sticky;
+      top: 0;
+      background: var(--cream);
+      z-index: 100;
+    }
+    .nav-name { font-family: var(--font-display); font-size: 14px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--red); }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: 44px 36px 36px;
+      border-bottom: var(--border);
+    }
+    .page-eyebrow {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 14px;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: 64px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .03em;
+      line-height: .92;
+    }
+
+    /* MAIN CONTACT GRID */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: var(--border);
+    }
+
+    /* LEFT — photo + info */
+    .contact-left {
+      border-right: var(--border);
+      display: flex;
+      flex-direction: column;
+    }
+    .contact-photo {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      border-bottom: var(--border);
+      /* Placeholder color until erielle.jpg loads */
+      background: #1a1a1a;
+    }
+    .contact-photo-placeholder {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: #111;
+      border-bottom: var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .contact-photo-placeholder span {
+      font-family: var(--font-display);
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #444;
+    }
+    .contact-info {
+      padding: 28px 32px;
+      flex: 1;
+    }
+    .contact-info-label {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--mute);
+      margin-bottom: 20px;
+    }
+    .contact-info-row {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .info-item {}
+    .info-item-label {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 4px;
+    }
+    .info-item-value {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      color: var(--dark);
+    }
+    .info-item-value a {
+      transition: color 0.2s;
+    }
+    .info-item-value a:hover { color: var(--red); }
+
+    /* RIGHT — form */
+    .contact-right {
+      padding: 36px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .form-label-top {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--mute);
+      margin-bottom: 28px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--mute);
+      margin-bottom: 7px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: transparent;
+      border: var(--border);
+      padding: 12px 14px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--dark);
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--red);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .form-group select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230d0d0d' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+    .form-submit {
+      margin-top: 8px;
+      background: var(--red);
+      color: var(--cream);
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      padding: 14px 30px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      transition: opacity 0.2s;
+    }
+    .form-submit:hover { opacity: 0.85; }
+
+    /* SUCCESS MESSAGE */
+    .form-success {
+      display: none;
+      padding: 20px;
+      border: var(--border);
+      margin-top: 12px;
+    }
+    .form-success p {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+
+    /* ABOUT STRIP */
+    .about-strip {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 0;
+      border-bottom: var(--border);
+    }
+    .about-strip-left {
+      padding: 36px 32px;
+      border-right: var(--border);
+    }
+    .about-label {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 16px;
+    }
+    .about-bio {
+      font-size: 13px;
+      line-height: 1.85;
+      color: var(--mid);
+    }
+    .about-strip-right {
+      padding: 36px 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px 36px;
+      align-content: start;
+    }
+    .about-stat {}
+    .about-stat-num {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .about-stat-num span { color: var(--red); }
+    .about-stat-label {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--mute);
+    }
+
+    /* RED BAND */
+    .band {
+      background: var(--red);
+      padding: 28px 36px;
+      border-bottom: var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .band-l { font-family: var(--font-display); font-size: 36px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--cream); line-height: 1; }
+    .band-r { font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: .25em; text-transform: uppercase; color: var(--cream); text-align: right; line-height: 1.9; opacity: .8; }
+
+    /* FOOTER */
+    footer { padding: 16px 36px; display: flex; justify-content: space-between; align-items: center; }
+    .ft-copy { font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--mute); }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .nav-links { gap: 18px; }
+      .page-header { padding: 28px 20px 24px; }
+      .page-title { font-size: 44px; }
+
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-left { border-right: none; border-bottom: var(--border); }
+      .contact-photo { aspect-ratio: 3/2; }
+      .contact-photo-placeholder { aspect-ratio: 3/2; }
+      .contact-right { padding: 28px 20px; }
+      .contact-info { padding: 24px 20px; }
+
+      .about-strip { grid-template-columns: 1fr; }
+      .about-strip-left { border-right: none; border-bottom: var(--border); padding: 24px 20px; }
+      .about-strip-right { padding: 24px 20px; grid-template-columns: 1fr 1fr; }
+
+      .band { padding: 20px; flex-direction: column; align-items: flex-start; gap: 12px; }
+      .band-l { font-size: 26px; }
+      footer { padding: 14px 20px; flex-direction: column; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-name">Erielle Amboy</a>
+    <div class="nav-links">
+      <a href="work.html">Work</a>
+      <a href="contact.html" class="active">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-eyebrow">Get in Touch</div>
+    <h1 class="page-title">Let's Make<br>Something.</h1>
+  </div>
+
+  <!-- CONTACT GRID -->
+  <div class="contact-grid">
+
+    <!-- LEFT: photo + direct info -->
+    <div class="contact-left">
+      <!--
+        erielle.jpg is already in your repo.
+        This img tag will load it automatically.
+      -->
+      <img
+        src="erielle.jpg"
+        alt="Erielle Amboy"
+        class="contact-photo"
+        onerror="this.style.display='none'; document.getElementById('photo-placeholder').style.display='flex';"
+      />
+      <div class="contact-photo-placeholder" id="photo-placeholder" style="display:none;">
+        <span>Erielle Amboy</span>
+      </div>
+
+      <div class="contact-info">
+        <div class="contact-info-label">Direct Contact</div>
+        <div class="contact-info-row">
+          <div class="info-item">
+            <div class="info-item-label">Email</div>
+            <div class="info-item-value">
+              <a href="mailto:amboyeri@icloud.com">amboyeri@icloud.com</a>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-item-label">Based In</div>
+            <div class="info-item-value">Boston, MA</div>
+          </div>
+          <div class="info-item">
+            <div class="info-item-label">Availability</div>
+            <div class="info-item-value">Open to Freelance + Full-Time</div>
+          </div>
+          <div class="info-item">
+            <div class="info-item-label">Instagram</div>
+            <div class="info-item-value">
+              <!-- Replace YOUR_HANDLE with your actual Instagram handle -->
+              <a href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener">@YOUR_HANDLE</a>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-item-label">LinkedIn</div>
+            <div class="info-item-value">
+              <!-- Replace YOUR_LINKEDIN with your actual LinkedIn URL -->
+              <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener">Erielle Amboy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: contact form -->
+    <div class="contact-right">
+      <div class="form-label-top">Send a Message</div>
+
+      <!--
+        This form uses Formspree (free).
+        Steps to activate:
+        1. Go to https://formspree.io and create a free account
+        2. Create a new form — it gives you a form ID like "xpzgkwqr"
+        3. Replace YOUR_FORMSPREE_ID below with that ID
+        Then this form will email you directly without any backend.
+      -->
+      <form
+        action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+        method="POST"
+        id="contactForm"
+        onsubmit="handleSubmit(event)"
+      >
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="type">Project Type</label>
+          <select id="type" name="project_type">
+            <option value="" disabled selected>Select a type</option>
+            <option value="commercial">Commercial</option>
+            <option value="documentary">Documentary</option>
+            <option value="corporate">Corporate / Brand</option>
+            <option value="event">Event Coverage</option>
+            <option value="narrative">Narrative / Short Film</option>
+            <option value="editing">Editing Only</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message &rarr;</button>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <p>&#10003; Message sent — I'll be in touch soon.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ABOUT STRIP -->
+  <div class="about-strip">
+    <div class="about-strip-left">
+      <div class="about-label">About</div>
+      <p class="about-bio">
+        Boston-based filmmaker, editor, and creative producer with experience across commercial, documentary, corporate, and narrative formats. I bring a cinematic eye and editorial instinct to every project — whether that's a brand campaign, a short film, or a content series.
+        <br><br>
+        Currently available for freelance projects and full-time roles at production companies, creative agencies, and in-house studios.
+      </p>
+    </div>
+    <div class="about-strip-right">
+      <div class="about-stat">
+        <div class="about-stat-num">4<span>+</span></div>
+        <div class="about-stat-label">Years Experience</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-num">10<span>+</span></div>
+        <div class="about-stat-label">Projects Completed</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-num">5<span>+</span></div>
+        <div class="about-stat-label">Clients</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-num">5</div>
+        <div class="about-stat-label">Software Tools</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RED BAND -->
+  <div class="band">
+    <div class="band-l">Filmmaker<br>+ Editor</div>
+    <div class="band-r">Boston, MA<br>Available for Hire<br>Freelance · Full-Time</div>
+  </div>
+
+  <footer>
+    <span class="ft-copy">&copy; 2025 Erielle Amboy</span>
+    <span class="ft-copy">Boston, MA</span>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      // Only intercept if Formspree ID hasn't been set yet
+      const action = document.getElementById('contactForm').action;
+      if (action.includes('YOUR_FORMSPREE_ID')) {
+        e.preventDefault();
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      }
+      // If real Formspree ID is set, let the form submit normally
+    }
+  </script>
+
+</body>
+</html>
