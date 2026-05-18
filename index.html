@@ -8,9 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    /* =====================
-       CSS VARIABLES
-    ===================== */
     :root {
       --cream: #FAF0E6;
       --red:   #9B1D20;
@@ -21,29 +18,18 @@
       --font-display: 'Barlow Condensed', sans-serif;
       --font-body:    'Barlow', sans-serif;
     }
-
-    /* =====================
-       RESET & BASE
-    ===================== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-body);
-      background: var(--cream);
-      color: var(--dark);
-      -webkit-font-smoothing: antialiased;
-    }
+    body { font-family: var(--font-body); background: var(--cream); color: var(--dark); -webkit-font-smoothing: antialiased; font-size: 16px; }
     a { text-decoration: none; color: inherit; }
     img { display: block; max-width: 100%; }
 
-    /* =====================
-       NAV
-    ===================== */
+    /* NAV */
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 36px;
+      padding: 20px 40px;
       border-bottom: var(--border);
       position: sticky;
       top: 0;
@@ -52,85 +38,72 @@
     }
     .nav-name {
       font-family: var(--font-display);
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 800;
       letter-spacing: .22em;
       text-transform: uppercase;
     }
-    .nav-links {
-      display: flex;
-      gap: 32px;
-    }
+    .nav-links { display: flex; gap: 36px; }
     .nav-links a {
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 600;
       letter-spacing: .18em;
       text-transform: uppercase;
       color: var(--mute);
       transition: color 0.2s;
     }
-    .nav-links a:hover,
-    .nav-links a.active { color: var(--red); }
+    .nav-links a:hover, .nav-links a.active { color: var(--red); }
 
-    /* =====================
-       HERO — VIMEO
-    ===================== */
+    /* HERO */
     .hero { background: #0a0a0a; }
-    .hero iframe {
-      display: block;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border: none;
-    }
+    .hero iframe { display: block; width: 100%; aspect-ratio: 16/9; border: none; }
     .hero-bar {
       background: var(--cream);
       border-bottom: var(--border);
-      padding: 10px 36px;
+      padding: 12px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     .hero-bar-l {
       font-family: var(--font-display);
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 700;
       letter-spacing: .25em;
       text-transform: uppercase;
       color: #333;
     }
     .hero-bar-r {
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: .18em;
       text-transform: uppercase;
       color: var(--red);
     }
 
-    /* =====================
-       TITLE CARD
-    ===================== */
+    /* TITLE CARD */
     .title-card {
-      padding: 44px 36px;
+      padding: 52px 40px;
       border-bottom: var(--border);
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
     .title-left {
       border-right: var(--border);
-      padding-right: 36px;
+      padding-right: 40px;
     }
     .title-eyebrow {
       font-family: var(--font-display);
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 700;
       letter-spacing: .28em;
       text-transform: uppercase;
       color: var(--red);
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
     .title-name {
       font-family: var(--font-display);
-      font-size: 76px;
+      font-size: 84px;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: .02em;
@@ -138,34 +111,34 @@
       color: var(--dark);
     }
     .title-right {
-      padding-left: 36px;
+      padding-left: 40px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
     }
     .title-role {
       font-family: var(--font-display);
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 700;
       letter-spacing: .25em;
       text-transform: uppercase;
       color: #333;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
     .title-desc {
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 400;
-      line-height: 1.8;
+      line-height: 1.85;
       color: var(--mid);
-      max-width: 300px;
+      max-width: 320px;
     }
     .title-cta {
-      margin-top: 22px;
+      margin-top: 26px;
       display: inline-flex;
       align-items: center;
       gap: 8px;
       font-family: var(--font-display);
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 700;
       letter-spacing: .2em;
       text-transform: uppercase;
@@ -177,296 +150,126 @@
     }
     .title-cta:hover { opacity: 0.7; }
 
-    /* =====================
-       SECTION WRAPPER
-    ===================== */
-    .sec {
-      padding: 40px 36px;
-      border-bottom: var(--border);
-    }
-    .sec-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 28px;
-    }
-    .sec-num {
-      font-family: var(--font-display);
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--red);
-      letter-spacing: .1em;
-    }
-    .sec-title {
-      font-family: var(--font-display);
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: var(--dark);
-    }
-    .sec-header::after {
-      content: '';
-      flex: 1;
-      height: 1.5px;
-      background: var(--dark);
-    }
+    /* SECTION */
+    .sec { padding: 44px 40px; border-bottom: var(--border); }
+    .sec-header { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+    .sec-num { font-family: var(--font-display); font-size: 13px; font-weight: 700; color: var(--red); letter-spacing: .1em; }
+    .sec-title { font-family: var(--font-display); font-size: 15px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: var(--dark); }
+    .sec-header::after { content: ''; flex: 1; height: 1.5px; background: var(--dark); }
 
-    /* =====================
-       WORK GRID
-    ===================== */
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-    }
+    /* WORK GRID */
+    .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
     .work-card {
       background: #111;
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 16/10;
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 12px;
+      padding: 14px;
       overflow: hidden;
       cursor: pointer;
       transition: transform 0.3s ease;
     }
     .work-card:hover { transform: scale(1.01); }
-    .work-card.big {
-      grid-column: span 2;
-      aspect-ratio: auto;
-      min-height: 160px;
-    }
-    .work-card-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,.82) 0%, transparent 60%);
-    }
+    .work-card.big { grid-column: span 2; aspect-ratio: auto; min-height: 180px; }
+    .work-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.82) 0%, transparent 60%); }
     .work-card-num {
-      position: absolute;
-      top: 10px;
-      left: 12px;
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: .18em;
-      color: #FAF0E6;
-      font-family: var(--font-display);
-      z-index: 2;
-      opacity: .65;
+      position: absolute; top: 12px; left: 14px;
+      font-size: 10px; font-weight: 700; letter-spacing: .18em;
+      color: #FAF0E6; font-family: var(--font-display); z-index: 2; opacity: .65;
     }
     .work-card-info { z-index: 2; }
-    .work-card-title {
-      font-family: var(--font-display);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: #f5f0e8;
-    }
-    .work-card-cat {
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: #aaa;
-      margin-top: 2px;
-    }
-    .work-card a.card-link {
-      position: absolute;
-      inset: 0;
-      z-index: 3;
-    }
+    .work-card-title { font-family: var(--font-display); font-size: 15px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #f5f0e8; }
+    .work-card-cat { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #aaa; margin-top: 3px; }
+    .work-card a.card-link { position: absolute; inset: 0; z-index: 3; }
 
-    /* =====================
-       RED BAND
-    ===================== */
+    /* RED BAND */
     .band {
       background: var(--red);
-      padding: 28px 36px;
+      padding: 32px 40px;
       border-top: var(--border);
       border-bottom: var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .band-l {
-      font-family: var(--font-display);
-      font-size: 36px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      color: var(--cream);
-      line-height: 1;
-    }
-    .band-r {
-      font-family: var(--font-display);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .25em;
-      text-transform: uppercase;
-      color: var(--cream);
-      text-align: right;
-      line-height: 1.9;
-      opacity: .8;
-    }
+    .band-l { font-family: var(--font-display); font-size: 40px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--cream); line-height: 1; }
+    .band-r { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: .25em; text-transform: uppercase; color: var(--cream); text-align: right; line-height: 2; opacity: .85; }
 
-    /* =====================
-       CLIENTS GRID
-    ===================== */
-    .clients-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border: var(--border);
-    }
+    /* CLIENTS */
+    .clients-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: var(--border); }
     .client-cell {
-      padding: 22px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-right: var(--border);
-      border-bottom: var(--border);
-      min-height: 64px;
+      padding: 26px 18px;
+      display: flex; align-items: center; justify-content: center;
+      border-right: var(--border); border-bottom: var(--border); min-height: 72px;
     }
     .client-cell:nth-child(4n) { border-right: none; }
     .client-cell:nth-last-child(-n+4) { border-bottom: none; }
-    .client-name {
-      font-family: var(--font-display);
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--dark);
-    }
+    .client-name { font-family: var(--font-display); font-size: 15px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--dark); }
     .client-name.more { color: #bbb; }
 
-    /* =====================
-       SOFTWARE
-    ===================== */
-    .software-row {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
+    /* SOFTWARE */
+    .software-row { display: flex; gap: 10px; flex-wrap: wrap; }
     .sw-pill {
       border: var(--border);
-      padding: 9px 18px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: var(--dark);
+      padding: 10px 20px;
+      font-size: 13px; font-weight: 700; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--dark);
       font-family: var(--font-display);
     }
 
-    /* =====================
-       CONTACT CTA
-    ===================== */
+    /* CONTACT CTA */
     .cta-sec {
-      padding: 48px 36px;
+      padding: 56px 40px;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       border-bottom: var(--border);
     }
-    .cta-big {
-      font-family: var(--font-display);
-      font-size: 56px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: .04em;
-      line-height: .95;
-      color: var(--dark);
-    }
+    .cta-big { font-family: var(--font-display); font-size: 64px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; line-height: .95; color: var(--dark); }
     .cta-big span { color: var(--red); }
     .cta-btn {
-      background: var(--red);
-      color: var(--cream);
-      font-family: var(--font-display);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      padding: 14px 30px;
-      border: none;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: opacity 0.2s;
-      display: inline-block;
+      background: var(--red); color: var(--cream);
+      font-family: var(--font-display); font-size: 14px; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase;
+      padding: 16px 34px; border: none; cursor: pointer;
+      white-space: nowrap; transition: opacity 0.2s; display: inline-block;
     }
     .cta-btn:hover { opacity: 0.85; }
 
-    /* =====================
-       FOOTER
-    ===================== */
-    footer {
-      padding: 16px 36px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .ft-copy {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--mute);
-    }
+    /* FOOTER */
+    footer { padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; }
+    .ft-copy { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--mute); }
 
-    /* =====================
-       MOBILE
-    ===================== */
+    /* MOBILE */
     @media (max-width: 768px) {
-      nav { padding: 14px 20px; }
-      .nav-links { gap: 18px; }
-      .nav-links a { font-size: 10px; }
-
-      .hero-bar { padding: 8px 20px; }
-
-      .title-card {
-        grid-template-columns: 1fr;
-        padding: 28px 20px;
-        gap: 24px;
-      }
-      .title-left {
-        border-right: none;
-        border-bottom: var(--border);
-        padding-right: 0;
-        padding-bottom: 24px;
-      }
-      .title-name { font-size: 52px; }
+      nav { padding: 16px 20px; }
+      .nav-links { gap: 20px; }
+      .nav-links a { font-size: 11px; }
+      .hero-bar { padding: 10px 20px; }
+      .title-card { grid-template-columns: 1fr; padding: 32px 20px; gap: 28px; }
+      .title-left { border-right: none; border-bottom: var(--border); padding-right: 0; padding-bottom: 28px; }
+      .title-name { font-size: 58px; }
       .title-right { padding-left: 0; }
-
-      .sec { padding: 28px 20px; }
-
+      .sec { padding: 32px 20px; }
       .work-grid { grid-template-columns: 1fr; gap: 8px; }
-      .work-card.big { grid-column: span 1; min-height: 120px; }
-
-      .band { padding: 20px; flex-direction: column; align-items: flex-start; gap: 12px; }
-      .band-l { font-size: 28px; }
-      .band-r { text-align: left; }
-
+      .work-card.big { grid-column: span 1; min-height: 140px; }
+      .band { padding: 24px 20px; flex-direction: column; align-items: flex-start; gap: 14px; }
+      .band-l { font-size: 30px; }
       .clients-grid { grid-template-columns: repeat(2, 1fr); }
       .client-cell:nth-child(4n) { border-right: var(--border); }
       .client-cell:nth-child(2n) { border-right: none; }
       .client-cell:nth-last-child(-n+4) { border-bottom: var(--border); }
       .client-cell:nth-last-child(-n+2) { border-bottom: none; }
-
-      .cta-sec {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
-        padding: 32px 20px;
-      }
-      .cta-big { font-size: 40px; }
-
-      footer { padding: 14px 20px; flex-direction: column; gap: 4px; text-align: center; }
+      .cta-sec { flex-direction: column; align-items: flex-start; gap: 28px; padding: 36px 20px; }
+      .cta-big { font-size: 46px; }
+      footer { padding: 16px 20px; flex-direction: column; gap: 6px; text-align: center; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <a href="index.html" class="nav-name">Erielle Amboy</a>
     <div class="nav-links">
@@ -476,7 +279,6 @@
     </div>
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
     <iframe
       src="https://player.vimeo.com/video/1192139677?h=abc95b104d&autoplay=0&title=0&byline=0&portrait=0"
@@ -490,7 +292,6 @@
     <span class="hero-bar-r">● Boston, MA</span>
   </div>
 
-  <!-- TITLE CARD -->
   <section class="title-card">
     <div class="title-left">
       <div class="title-eyebrow">Filmmaker + Editor</div>
@@ -503,34 +304,30 @@
     </div>
   </section>
 
-  <!-- SELECTED WORK -->
   <section class="sec">
     <div class="sec-header">
       <span class="sec-num">01</span>
       <span class="sec-title">Selected Work</span>
     </div>
     <div class="work-grid">
-
-      <div class="work-card big" style="background:#1a1410;">
+      <div class="work-card big" style="background:#101418;">
         <div class="work-card-overlay"></div>
         <span class="work-card-num">01</span>
         <div class="work-card-info">
-          <div class="work-card-title">Reebok × Brainchild</div>
-          <div class="work-card-cat">Commercial</div>
+          <div class="work-card-title">MassArt — MassHEART Day</div>
+          <div class="work-card-cat">Documentary</div>
         </div>
-        <a href="work.html#reebok" class="card-link" aria-label="Reebok x Brainchild"></a>
+        <a href="work.html#massart" class="card-link" aria-label="MassArt MassHEART Day"></a>
       </div>
-
-      <div class="work-card" style="background:#101418;">
+      <div class="work-card" style="background:#141010;">
         <div class="work-card-overlay"></div>
         <span class="work-card-num">02</span>
         <div class="work-card-info">
-          <div class="work-card-title">MassArt</div>
-          <div class="work-card-cat">Documentary</div>
+          <div class="work-card-title">MassArt — Social</div>
+          <div class="work-card-cat">Social Media</div>
         </div>
-        <a href="work.html#massart" class="card-link" aria-label="MassArt"></a>
+        <a href="work.html#massart-social" class="card-link" aria-label="MassArt Social"></a>
       </div>
-
       <div class="work-card" style="background:#120f0e;">
         <div class="work-card-overlay"></div>
         <span class="work-card-num">03</span>
@@ -540,37 +337,23 @@
         </div>
         <a href="work.html#minipcr" class="card-link" aria-label="MiniPCR"></a>
       </div>
-
-      <div class="work-card" style="background:#0e1210;">
-        <div class="work-card-overlay"></div>
-        <span class="work-card-num">04</span>
-        <div class="work-card-info">
-          <div class="work-card-title">BioBuilder</div>
-          <div class="work-card-cat">Education</div>
-        </div>
-        <a href="work.html#biobuilder" class="card-link" aria-label="BioBuilder"></a>
-      </div>
-
       <div class="work-card big" style="background:#13100e;">
         <div class="work-card-overlay"></div>
-        <span class="work-card-num">05</span>
+        <span class="work-card-num">04</span>
         <div class="work-card-info">
           <div class="work-card-title">Short Films</div>
           <div class="work-card-cat">Narrative</div>
         </div>
         <a href="work.html#shortfilms" class="card-link" aria-label="Short Films"></a>
       </div>
-
     </div>
   </section>
 
-  <!-- RED BAND -->
   <div class="band">
     <div class="band-l">Filmmaker<br>+ Editor</div>
     <div class="band-r">Boston, MA<br>Available for Hire<br>Freelance · Full-Time</div>
   </div>
 
-  <!-- CLIENTS -->
   <section class="sec">
     <div class="sec-header">
       <span class="sec-num">02</span>
@@ -588,7 +371,6 @@
     </div>
   </section>
 
-  <!-- SOFTWARE -->
   <section class="sec">
     <div class="sec-header">
       <span class="sec-num">03</span>
@@ -603,13 +385,11 @@
     </div>
   </section>
 
-  <!-- CONTACT CTA -->
   <section class="cta-sec" id="about">
     <div class="cta-big">Let's Make<br><span>Something.</span></div>
     <a href="contact.html" class="cta-btn">Get in Touch &rarr;</a>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <span class="ft-copy">&copy; 2025 Erielle Amboy</span>
     <span class="ft-copy">Boston, MA</span>
