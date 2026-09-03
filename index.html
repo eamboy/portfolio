@@ -6,7 +6,7 @@
   <title>Erielle Amboy — Filmmaker + Editor</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet" />
   <style>
     :root {
       --cream: #FAF0E6;
@@ -17,6 +17,7 @@
       --border: 1.5px solid #0d0d0d;
       --font-display: 'Barlow Condensed', sans-serif;
       --font-body:    'Barlow', sans-serif;
+      --font-hand:    'Caveat', cursive;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -36,6 +37,7 @@
       background: var(--cream);
       z-index: 100;
     }
+    .nav-brand { display: flex; align-items: center; gap: 10px; }
     .nav-name {
       font-family: var(--font-display);
       font-size: 16px;
@@ -43,6 +45,21 @@
       letter-spacing: .22em;
       text-transform: uppercase;
     }
+
+    /* HAND-DRAWN ACCENTS — placeholder doodle figure + handwritten notes.
+       Swap .doodle svg paths for your own scan whenever ready. */
+    .doodle { display: block; }
+    .doodle-nav { width: 26px; height: 26px; flex-shrink: 0; }
+    .doodle-hero { width: 120px; height: 120px; }
+    .hand-note {
+      font-family: var(--font-hand);
+      font-size: 19px;
+      color: var(--red);
+      line-height: 1.1;
+      display: inline-block;
+    }
+    .hand-note.on-dark { color: var(--cream); }
+    .hand-note.muted { color: var(--mid); }
     .nav-links { display: flex; gap: 36px; }
     .nav-links a {
       font-size: 13px;
@@ -57,6 +74,23 @@
     /* HERO */
     .hero { background: #0a0a0a; }
     .hero iframe { display: block; width: 100%; aspect-ratio: 16/9; border: none; }
+
+    /* SKINNY TAGLINE RIBBON */
+    .tagline-ribbon {
+      background: #1A1714;
+      border-bottom: var(--border);
+      padding: 14px 40px;
+      text-align: center;
+    }
+    .tagline-ribbon-text {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+    .tagline-ribbon-text .accent { color: var(--red); }
     .hero-bar {
       background: var(--cream);
       border-bottom: var(--border);
@@ -251,6 +285,8 @@
       .title-card { grid-template-columns: 1fr; padding: 32px 20px; gap: 28px; }
       .title-left { border-right: none; border-bottom: var(--border); padding-right: 0; padding-bottom: 28px; }
       .title-name { font-size: 58px; }
+      .tagline-ribbon { padding: 12px 20px; }
+      .tagline-ribbon-text { font-size: 15px; }
       .title-right { padding-left: 0; }
       .sec { padding: 32px 20px; }
       .work-grid { grid-template-columns: 1fr; gap: 8px; }
@@ -271,24 +307,40 @@
 <body>
 
   <nav>
-    <a href="index.html" class="nav-name">Erielle Amboy</a>
+    <a href="index.html" class="nav-brand">
+      <svg class="doodle doodle-nav" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- placeholder line figure — swap for your own drawing later -->
+        <path d="M42 20c-4 0-7 3-7 7s3 7 7 7 7-3 7-7-3-7-7-7z" stroke="#0d0d0d" stroke-width="2.5" fill="none"/>
+        <path d="M35 34c-6 3-9 9-9 16v14" stroke="#0d0d0d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M49 34c5 2 8 7 9 12" stroke="#0d0d0d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <rect x="52" y="40" width="16" height="11" rx="2" stroke="#9B1D20" stroke-width="2.5" fill="none"/>
+        <circle cx="60" cy="45.5" r="3" stroke="#9B1D20" stroke-width="2" fill="none"/>
+      </svg>
+      <span class="nav-name">Erielle Amboy</span>
+    </a>
     <div class="nav-links">
-      <a href="work.html">Work</a>
-      <a href="index.html#about">About</a>
+      <a href="professional.html">Professional</a>
+      <a href="creative.html">Creative</a>
+      <a href="concert.html">Concert</a>
+      <a href="personal-work.html">Personal Work</a>
       <a href="contact.html">Contact</a>
     </div>
   </nav>
 
+  <section class="tagline-ribbon">
+    <span class="tagline-ribbon-text">Film. Edit. <span class="accent">Tell the story.</span></span>
+  </section>
+
   <section class="hero">
     <iframe
-      src="https://player.vimeo.com/video/1192139677?h=abc95b104d&autoplay=0&title=0&byline=0&portrait=0"
+      src="https://www.youtube.com/embed/ijsqGvJY7Wo?autoplay=1&mute=1&loop=1&playlist=ijsqGvJY7Wo&playsinline=1&modestbranding=1&rel=0"
       allow="autoplay; fullscreen; picture-in-picture"
       allowfullscreen
-      title="Erielle Amboy — Demo Reel">
+      title="Erielle Amboy — Reel">
     </iframe>
   </section>
   <div class="hero-bar">
-    <span class="hero-bar-l">Demo Reel</span>
+    <span class="hero-bar-l">Reel</span>
     <span class="hero-bar-r">● Boston, MA</span>
   </div>
 
@@ -296,11 +348,12 @@
     <div class="title-left">
       <div class="title-eyebrow">Filmmaker + Editor</div>
       <div class="title-name">Erielle<br>Amboy</div>
+      <span class="hand-note" style="margin-top:10px; transform: rotate(-2deg);">shot on location, boston &amp; beyond</span>
     </div>
     <div class="title-right">
       <div class="title-role">Boston, MA · Available for Hire</div>
       <p class="title-desc">Boston-based filmmaker and editor creating cinematic work for brands, institutions, and independent projects. Available for freelance and full-time roles.</p>
-      <a href="work.html" class="title-cta">View Selected Work &rarr;</a>
+      <a href="professional.html" class="title-cta">View Selected Work &rarr;</a>
     </div>
   </section>
 
@@ -315,36 +368,36 @@
         <span class="work-card-num">01</span>
         <div class="work-card-info">
           <div class="work-card-title">MassArt — MassHEART Day</div>
-          <div class="work-card-cat">Documentary</div>
+          <div class="work-card-cat">Professional</div>
         </div>
-        <a href="work.html#massart" class="card-link" aria-label="MassArt MassHEART Day"></a>
+        <a href="project.html?id=massheart-2024" class="card-link" aria-label="MassArt MassHEART Day"></a>
       </div>
       <div class="work-card" style="background:#141010;">
         <div class="work-card-overlay"></div>
         <span class="work-card-num">02</span>
         <div class="work-card-info">
           <div class="work-card-title">MassArt — Social</div>
-          <div class="work-card-cat">Social Media</div>
+          <div class="work-card-cat">Creative</div>
         </div>
-        <a href="work.html#massart-social" class="card-link" aria-label="MassArt Social"></a>
+        <a href="project.html?id=massart-social" class="card-link" aria-label="MassArt Social"></a>
       </div>
       <div class="work-card" style="background:#120f0e;">
         <div class="work-card-overlay"></div>
         <span class="work-card-num">03</span>
         <div class="work-card-info">
           <div class="work-card-title">MiniPCR</div>
-          <div class="work-card-cat">Corporate</div>
+          <div class="work-card-cat">Professional</div>
         </div>
-        <a href="work.html#minipcr" class="card-link" aria-label="MiniPCR"></a>
+        <a href="project.html?id=minipcr-p51" class="card-link" aria-label="MiniPCR"></a>
       </div>
       <div class="work-card big" style="background:#13100e;">
         <div class="work-card-overlay"></div>
         <span class="work-card-num">04</span>
         <div class="work-card-info">
-          <div class="work-card-title">Short Films</div>
-          <div class="work-card-cat">Narrative</div>
+          <div class="work-card-title">Personal Work</div>
+          <div class="work-card-cat">Short Films &amp; Documentary</div>
         </div>
-        <a href="work.html#shortfilms" class="card-link" aria-label="Short Films"></a>
+        <a href="personal-work.html" class="card-link" aria-label="Personal Work"></a>
       </div>
     </div>
   </section>
@@ -386,7 +439,10 @@
   </section>
 
   <section class="cta-sec" id="about">
-    <div class="cta-big">Let's Make<br><span>Something.</span></div>
+    <div>
+      <div class="cta-big">Let's Make<br><span>Something.</span></div>
+      <span class="hand-note muted" style="margin-top:6px; transform: rotate(-1deg);">seriously, i'd love to hear your idea</span>
+    </div>
     <a href="contact.html" class="cta-btn">Get in Touch &rarr;</a>
   </section>
 
