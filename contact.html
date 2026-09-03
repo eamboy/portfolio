@@ -6,7 +6,7 @@
   <title>Contact — Erielle Amboy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet" />
   <style>
     :root {
       --cream: #FAF0E6;
@@ -17,6 +17,7 @@
       --border: 1.5px solid #0d0d0d;
       --font-display: 'Barlow Condensed', sans-serif;
       --font-body:    'Barlow', sans-serif;
+      --font-hand:    'Caveat', cursive;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -30,10 +31,14 @@
       padding: 20px 40px; border-bottom: var(--border);
       position: sticky; top: 0; background: var(--cream); z-index: 100;
     }
+    .nav-brand { display: flex; align-items: center; gap: 10px; }
     .nav-name { font-family: var(--font-display); font-size: 16px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; }
     .nav-links { display: flex; gap: 36px; }
     .nav-links a { font-size: 13px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); transition: color 0.2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--red); }
+    .doodle-nav { width: 26px; height: 26px; flex-shrink: 0; display: block; }
+    .hand-note { font-family: var(--font-hand); font-size: 19px; color: var(--red); line-height: 1.1; display: inline-block; }
+    .hand-note.muted { color: var(--mid); }
 
     /* PAGE HEADER */
     .page-header { padding: 52px 40px 44px; border-bottom: var(--border); }
@@ -138,10 +143,21 @@
 <body>
 
   <nav>
-    <a href="index.html" class="nav-name">Erielle Amboy</a>
+    <a href="index.html" class="nav-brand">
+      <svg class="doodle-nav" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M42 20c-4 0-7 3-7 7s3 7 7 7 7-3 7-7-3-7-7-7z" stroke="#0d0d0d" stroke-width="2.5" fill="none"/>
+        <path d="M35 34c-6 3-9 9-9 16v14" stroke="#0d0d0d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M49 34c5 2 8 7 9 12" stroke="#0d0d0d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <rect x="52" y="40" width="16" height="11" rx="2" stroke="#9B1D20" stroke-width="2.5" fill="none"/>
+        <circle cx="60" cy="45.5" r="3" stroke="#9B1D20" stroke-width="2" fill="none"/>
+      </svg>
+      <span class="nav-name">Erielle Amboy</span>
+    </a>
     <div class="nav-links">
-      <a href="work.html">Work</a>
-      <a href="contact.html" class="active">About</a>
+      <a href="professional.html">Professional</a>
+      <a href="creative.html">Creative</a>
+      <a href="concert.html">Concert</a>
+      <a href="personal-work.html">Personal Work</a>
       <a href="contact.html" class="active">Contact</a>
     </div>
   </nav>
@@ -149,6 +165,7 @@
   <div class="page-header">
     <div class="page-eyebrow">Get in Touch</div>
     <h1 class="page-title">Let's Make<br>Something.</h1>
+    <span class="hand-note muted" style="margin-top:12px; transform: rotate(-1deg);">tell me about your project — i read every email</span>
   </div>
 
   <div class="contact-grid">

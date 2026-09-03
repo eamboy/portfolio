@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project — Erielle Amboy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #FAF0E6;
+      --red:   #9B1D20;
+      --dark:  #0d0d0d;
+      --mid:   #444;
+      --mute:  #777;
+      --border: 1.5px solid #0d0d0d;
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body:    'Barlow', sans-serif;
+      --font-hand:    'Caveat', cursive;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--cream); color: var(--dark); -webkit-font-smoothing: antialiased; font-size: 16px; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-bottom: var(--border); position: sticky; top: 0; background: var(--cream); z-index: 100; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; }
+    .nav-name { font-family: var(--font-display); font-size: 16px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 36px; }
+    .nav-links a { font-size: 13px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--red); }
+    .doodle-nav { width: 26px; height: 26px; flex-shrink: 0; display: block; }
+    .hand-note { font-family: var(--font-hand); font-size: 19px; color: var(--red); line-height: 1.1; display: inline-block; }
+    .hand-note.muted { color: var(--mid); }
+
+    .back-row { padding: 20px 40px 0; }
+    .back-link { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--mute); }
+    .back-link:hover { color: var(--red); }
+
+    .page-header { padding: 24px 40px 40px; border-bottom: var(--border); }
+    .page-eyebrow { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: .28em; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
+    .page-title { font-family: var(--font-display); font-size: 56px; font-weight: 800; text-transform: uppercase; letter-spacing: .02em; line-height: .96; margin-bottom: 14px; }
+    .page-meta { display: flex; gap: 16px; flex-wrap: wrap; }
+    .meta-pill { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--mid); }
+    .meta-pill:not(:last-child)::after { content: '·'; margin-left: 16px; color: var(--mute); }
+
+    .sec { padding: 44px 40px; border-bottom: var(--border); }
+    .project-desc { font-size: 16px; line-height: 1.85; color: var(--mid); max-width: 640px; margin-bottom: 28px; }
+    .project-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 34px; }
+    .project-tag { border: 1.5px solid var(--dark); padding: 6px 14px; font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+
+    .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .video-item.full { grid-column: 1 / -1; }
+    .video-embed { position: relative; width: 100%; aspect-ratio: 16/9; background: #111; }
+    .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+    .video-caption { font-family: var(--font-display); font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--mute); margin-top: 10px; }
+
+    .ig-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .ig-tile { border: var(--border); padding: 18px; display: flex; align-items: center; gap: 14px; transition: background 0.2s; }
+    .ig-tile:hover { background: rgba(155,29,32,0.04); }
+    .ig-icon { font-size: 22px; color: var(--red); }
+    .ig-tile-label { font-family: var(--font-display); font-size: 15px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--dark); margin-bottom: 4px; }
+    .ig-tile-sub { font-size: 13px; color: var(--mute); }
+    .ig-tile-arrow { margin-left: auto; font-size: 20px; color: var(--red); flex-shrink: 0; }
+
+    .cta-sec { padding: 56px 40px; display: flex; justify-content: space-between; align-items: flex-end; }
+    .cta-big { font-family: var(--font-display); font-size: 48px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; line-height: .95; color: var(--dark); }
+    .cta-big span { color: var(--red); }
+    .cta-btn { background: var(--red); color: var(--cream); font-family: var(--font-display); font-size: 14px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; padding: 16px 34px; border: none; cursor: pointer; white-space: nowrap; transition: opacity 0.2s; display: inline-block; }
+    .cta-btn:hover { opacity: 0.85; }
+
+    footer { padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; }
+    .ft-copy { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--mute); }
+
+    .not-found { padding: 80px 40px; text-align: center; }
+    .not-found .page-title { font-size: 40px; }
+
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      .nav-links { gap: 20px; }
+      .nav-links a { font-size: 11px; }
+      .back-row, .page-header, .sec, .cta-sec, footer { padding-left: 20px; padding-right: 20px; }
+      .page-title { font-size: 38px; }
+      .video-grid, .ig-grid { grid-template-columns: 1fr; }
+      .cta-sec { flex-direction: column; align-items: flex-start; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <svg class="doodle-nav" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M42 20c-4 0-7 3-7 7s3 7 7 7 7-3 7-7-3-7-7-7z" stroke="#0d0d0d" stroke-width="2.5" fill="none"/>
+        <path d="M35 34c-6 3-9 9-9 16v14" stroke="#0d0d0d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M49 34c5 2 8 7 9 12" stroke="#0d0d0d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <rect x="52" y="40" width="16" height="11" rx="2" stroke="#9B1D20" stroke-width="2.5" fill="none"/>
+        <circle cx="60" cy="45.5" r="3" stroke="#9B1D20" stroke-width="2" fill="none"/>
+      </svg>
+      <span class="nav-name">Erielle Amboy</span>
+    </a>
+    <div class="nav-links">
+      <a href="professional.html">Professional</a>
+      <a href="creative.html">Creative</a>
+      <a href="concert.html">Concert</a>
+      <a href="personal-work.html">Personal Work</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <div id="app"></div>
+
+  <footer>
+    <span class="ft-copy">&copy; 2026 Erielle Amboy</span>
+    <span class="ft-copy">Boston, MA</span>
+  </footer>
+
+  <script>
+    // ---- PROJECT DATA ----
+    // Add new projects here. category controls the "back to" link.
+    const PROJECTS = {
+      "massheart-2024": {
+        category: "professional", categoryLabel: "Professional",
+        title: "MassHEART Day — Tanya Kaya",
+        meta: ["Documentary", "Filmed + Edited", "2024"],
+        desc: "Filmed and edited a spotlight interview for MassArt's MassHEART Day 2024 — a donor-facing piece capturing a personal story and the impact of institutional support.",
+        tags: ["Director", "Cinematographer", "Editor", "MassArt"],
+        media: [{ type: "youtube", id: "6DAazM3TBR0", caption: "Tanya Kaya — MassHEART Day 2024" }]
+      },
+      "massheart-2026": {
+        category: "professional", categoryLabel: "Professional",
+        title: "MassHEART Day — Spice Callahan",
+        meta: ["Documentary", "Filmed + Edited", "2026"],
+        desc: "Spotlight interview for MassArt's MassHEART Day 2026 campaign, capturing a student's story and creative journey.",
+        tags: ["Director", "Cinematographer", "Editor", "MassArt"],
+        media: [
+          { type: "youtube", id: "mGNzBmvh_Ew", caption: "Spice Callahan '27 — Painting" }
+        ]
+      },
+      "massheart-provost": {
+        category: "professional", categoryLabel: "Professional",
+        title: "MassHEART Day — President & Provost Message",
+        meta: ["Documentary", "Scripted Interview + B-roll", "2024"],
+        desc: "Filmed a scripted interview and b-roll, then edited the promotional video for a message from MassArt's President & Provost.",
+        tags: ["Cinematographer", "Editor", "MassArt"],
+        media: [] // add the Provost video link here when ready
+      },
+      "biobuilder": {
+        category: "professional", categoryLabel: "Professional",
+        title: "BioBuilder — Intern Spotlights",
+        meta: ["Corporate", "Biotech", "2026"],
+        desc: "Spotlight interviews with BioBuilder interns — recent interview and b-roll work produced for the biotech education organization.",
+        tags: ["Filmmaker", "Editor", "BioBuilder"],
+        media: [
+          { type: "youtube", id: "gE3A651mzY4", caption: "BioBuilder Intern Spotlight" },
+          { type: "youtube", id: "Cn_l5oOpt9s", caption: "BioBuilder Intern Spotlight" }
+        ]
+      },
+      "veracode": {
+        category: "professional", categoryLabel: "Professional",
+        title: "Veracode",
+        meta: ["Corporate", "B-roll Feature"],
+        desc: "B-roll footage shot by Erielle featured in Veracode's promotional piece.",
+        tags: ["Cinematographer", "Veracode"],
+        media: [{ type: "youtube", id: "3Ygt7zw-Haw", caption: "Veracode — featuring Erielle's b-roll" }]
+      },
+      "minipcr-p51": {
+        category: "professional", categoryLabel: "Professional",
+        title: "MiniPCR — P51 Fluorescence Viewer",
+        meta: ["Corporate", "Stop Motion", "2023"],
+        desc: "Filmed and edited a product piece for MiniPCR's P51 Fluorescence Viewer, using stop motion and sound design.",
+        tags: ["Filmmaker", "Editor", "Stop Motion", "MiniPCR"],
+        media: [{ type: "youtube", id: "H0t0fUyFa4Y", caption: "MiniPCR — P51 Fluorescence Viewer" }]
+      },
+      "minipcr-bandit": {
+        category: "professional", categoryLabel: "Professional",
+        title: "MiniPCR — Bandit STEM Electrophoresis Kit",
+        meta: ["Corporate", "Stop Motion"],
+        desc: "Filmed and edited a product overview for MiniPCR's Bandit STEM Electrophoresis Kit, primarily using stop motion.",
+        tags: ["Filmmaker", "Editor", "Stop Motion", "MiniPCR"],
+        media: [{ type: "youtube", id: "GCESffKF_m0", caption: "MiniPCR — Bandit STEM Electrophoresis Kit" }]
+      },
+      "music-video": {
+        category: "creative", categoryLabel: "Creative",
+        title: "Music Video",
+        meta: ["Music", "Directed · Filmed · Edited"],
+        desc: "Full creative ownership — directed, filmed, and edited from concept to delivery.",
+        tags: ["Director", "Cinematographer", "Editor"],
+        media: [{ type: "youtube", id: "tIo2v_dbajY", caption: "Music Video" }]
+      },
+      "social-campaign": {
+        category: "creative", categoryLabel: "Creative",
+        title: "Social Campaign",
+        meta: ["Campaign", "Directed · Produced · Edited"],
+        desc: "Directed, produced, filmed, and edited a set of social campaign reels — full creative ownership from concept to delivery.",
+        tags: ["Director", "Producer", "Editor"],
+        media: [
+          { type: "instagram", url: "https://www.instagram.com/reel/DOeoOhmgCHP/", label: "Campaign Reel 01" },
+          { type: "instagram", url: "https://www.instagram.com/reel/DOB6GUmgFQy/", label: "Campaign Reel 02" },
+          { type: "instagram", url: "https://www.instagram.com/reel/DOjFjsiDFzF/", label: "Campaign Reel 03" }
+        ]
+      },
+      "tabletop-jocks": {
+        category: "creative", categoryLabel: "Creative",
+        title: "Tabletop Jocks",
+        meta: ["Social Media Edit"],
+        desc: "Social media edit produced for Tabletop Jocks.",
+        tags: ["Editor"],
+        media: [{ type: "drive", url: "https://drive.google.com/file/d/1MZ0WHddcmJh83RRx10zsoOGgAry2TWiI/view", label: "Watch on Google Drive" }]
+      },
+      "ig-edit": {
+        category: "creative", categoryLabel: "Creative",
+        title: "Instagram Edit",
+        meta: ["Social Media", "Edit Only"],
+        desc: "Edit for a short-form Instagram reel.",
+        tags: ["Editor"],
+        media: [{ type: "instagram", url: "https://www.instagram.com/reel/DY5DLw1xBCn/", label: "View Reel" }]
+      },
+      "massart-social": {
+        category: "creative", categoryLabel: "Creative",
+        title: "MassArt — Vertical Social Content",
+        meta: ["Social Media", "Instagram"],
+        desc: "Short-form vertical social content produced for MassArt's Instagram — reels capturing student life and campus culture.",
+        tags: ["Director", "Editor", "MassArt"],
+        media: [
+          { type: "instagram", url: "https://www.instagram.com/reel/DX61TmmgicH/", label: "MassArt Reel 01" },
+          { type: "instagram", url: "https://www.instagram.com/reel/DXsGIXUEwpe/", label: "MassArt Reel 02" },
+          { type: "instagram", url: "https://www.instagram.com/reel/DYDO3iTzUXY/", label: "MassArt Reel 03" }
+        ]
+      },
+      "documentary-festival": {
+        category: "personal-work", categoryLabel: "Personal Work",
+        title: "Red",
+        meta: ["Documentary", "Funded", "Festival Premiere"],
+        desc: "A documentary following an ongoing environmental issue — an invasive species called Dasysiphonia Japonica polluting Popponesset. As a film student, Erielle used the species and ocean water itself to develop the film. Received funding and premiered internationally at a film festival. (Erielle — drop the festival name in here when you've got a sec.)",
+        tags: ["Director", "Cinematographer", "Editor"],
+        media: [{ type: "youtube", id: "r4cR2gwnsKY", caption: "Red" }]
+      },
+      "short-film-1": {
+        category: "personal-work", categoryLabel: "Personal Work",
+        title: "Discovering Spring",
+        meta: ["Short Film", "Trailer"],
+        desc: "Trailer for the short film Discovering Spring.",
+        tags: ["Director", "Editor"],
+        media: [{ type: "youtube", id: "SXRxtIK5pGY", caption: "Discovering Spring — Trailer" }]
+      },
+      "short-film-2": {
+        category: "personal-work", categoryLabel: "Personal Work",
+        title: "Searching for Autumn",
+        meta: ["Short Film", "Trailer"],
+        desc: "Trailer for the short film Searching for Autumn.",
+        tags: ["Director", "Editor"],
+        media: [{ type: "youtube", id: "eWbJ5U8mXlM", caption: "Searching for Autumn — Trailer" }]
+      },
+      "short-film-3": {
+        category: "personal-work", categoryLabel: "Personal Work",
+        title: "Chasing Talon",
+        meta: ["Short Film"],
+        desc: "A homesick young Filipino-American boy and his native Filipina cousin adventure through the foreign countryside of the Philippines in search of hidden waterfalls.",
+        tags: ["Director", "Editor"],
+        media: [{ type: "youtube", id: "sPHsj_GJTZw", caption: "Chasing Talon" }]
+      },
+      "short-film-4": {
+        category: "personal-work", categoryLabel: "Personal Work",
+        title: "Imagine | A Portraiture",
+        meta: ["Short Film"],
+        desc: "An older sister talks to her younger brother about going to space.",
+        tags: ["Director", "Editor"],
+        media: [{ type: "youtube", id: "zGuh4RbxUE4", caption: "Imagine | A Portraiture" }]
+      }
+    };
+
+    const CATEGORY_PAGES = { professional: "professional.html", creative: "creative.html", concert: "concert.html", "personal-work": "personal-work.html" };
+
+    function ytEmbed(id, caption) {
+      return `<div class="video-item">
+        <div class="video-embed"><iframe src="https://www.youtube.com/embed/${id}" title="${caption}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="video-caption">${caption}</div>
+      </div>`;
+    }
+    function externalTile(url, label, sub) {
+      return `<a class="ig-tile" href="${url}" target="_blank" rel="noopener">
+        <div class="ig-icon">&#9658;</div>
+        <div><div class="ig-tile-label">${label}</div><div class="ig-tile-sub">${sub}</div></div>
+        <div class="ig-tile-arrow">&rarr;</div>
+      </a>`;
+    }
+
+    function render() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+      const p = PROJECTS[id];
+      const app = document.getElementById("app");
+
+      if (!p) {
+        app.innerHTML = `<div class="not-found">
+          <div class="page-eyebrow" style="text-align:center">Not Found</div>
+          <h1 class="page-title">Project not found.</h1>
+          <p class="project-desc" style="margin:20px auto 0;text-align:center">Head back to <a href="index.html" style="color:var(--red)">the homepage</a>.</p>
+        </div>`;
+        return;
+      }
+
+      const backHref = CATEGORY_PAGES[p.category] || "index.html";
+      let mediaHTML = "";
+      const ytItems = p.media.filter(m => m.type === "youtube");
+      const otherItems = p.media.filter(m => m.type !== "youtube");
+
+      if (ytItems.length) {
+        mediaHTML += `<div class="video-grid">${ytItems.map(m => ytEmbed(m.id, m.caption)).join("")}</div>`;
+      }
+      if (otherItems.length) {
+        mediaHTML += `<div class="ig-grid" style="margin-top:${ytItems.length ? '16px' : '0'}">${otherItems.map(m =>
+          externalTile(m.url, m.label || m.caption || "View", m.type === "instagram" ? "View on Instagram" : "View on Google Drive")
+        ).join("")}</div>`;
+      }
+      if (!p.media.length) {
+        mediaHTML = `<p class="hand-note muted">video coming soon — check back shortly</p>`;
+      }
+
+      app.innerHTML = `
+        <div class="back-row"><a href="${backHref}" class="back-link">&larr; Back to ${p.categoryLabel}</a></div>
+        <div class="page-header">
+          <div class="page-eyebrow">${p.categoryLabel}</div>
+          <h1 class="page-title">${p.title}</h1>
+          <div class="page-meta">${p.meta.map(m => `<span class="meta-pill">${m}</span>`).join("")}</div>
+        </div>
+        <div class="sec">
+          <p class="project-desc">${p.desc}</p>
+          <div class="project-tags">${p.tags.map(t => `<span class="project-tag">${t}</span>`).join("")}</div>
+          ${mediaHTML}
+        </div>
+        <div class="cta-sec">
+          <div class="cta-big">Like what<br>you <span>see?</span></div>
+          <a href="contact.html" class="cta-btn">Get in Touch &rarr;</a>
+        </div>
+      `;
+      document.title = p.title + " — Erielle Amboy";
+    }
+
+    render();
+  </script>
+</body>
+</html>

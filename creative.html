@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative — Erielle Amboy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #FAF0E6; --red: #9B1D20; --dark: #0d0d0d; --mid: #444; --mute: #777;
+      --border: 1.5px solid #0d0d0d;
+      --font-display: 'Barlow Condensed', sans-serif; --font-body: 'Barlow', sans-serif; --font-hand: 'Caveat', cursive;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--cream); color: var(--dark); -webkit-font-smoothing: antialiased; font-size: 16px; }
+    a { text-decoration: none; color: inherit; }
+
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-bottom: var(--border); position: sticky; top: 0; background: var(--cream); z-index: 100; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; }
+    .nav-name { font-family: var(--font-display); font-size: 16px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 36px; }
+    .nav-links a { font-size: 13px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--red); }
+    .doodle-nav { width: 26px; height: 26px; flex-shrink: 0; display: block; }
+    .hand-note { font-family: var(--font-hand); font-size: 19px; color: var(--red); line-height: 1.1; display: inline-block; }
+    .hand-note.muted { color: var(--mid); }
+
+    .page-header { padding: 52px 40px 30px; border-bottom: var(--border); }
+    .page-eyebrow { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: .28em; text-transform: uppercase; color: var(--red); margin-bottom: 16px; }
+    .page-title { font-family: var(--font-display); font-size: 72px; font-weight: 800; text-transform: uppercase; letter-spacing: .03em; line-height: .92; margin-bottom: 14px; }
+    .page-sub { font-size: 16px; color: var(--mid); max-width: 520px; line-height: 1.6; }
+
+    .reel-sec { padding: 0; border-bottom: var(--border); }
+    .reel-placeholder { background: #111; aspect-ratio: 21/9; display: flex; align-items: center; justify-content: center; }
+    .reel-placeholder span { font-family: var(--font-display); font-size: 14px; letter-spacing: .2em; text-transform: uppercase; color: #555; }
+
+    .sec { padding: 44px 40px; border-bottom: var(--border); }
+    .sec-header { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+    .sec-title { font-family: var(--font-display); font-size: 15px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: var(--dark); }
+    .sec-header::after { content: ''; flex: 1; height: 1.5px; background: var(--dark); }
+
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .card { background: #111; aspect-ratio: 4/3; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: 16px; overflow: hidden; }
+    .card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.85) 0%, transparent 65%); }
+    .card-info { z-index: 2; }
+    .card-title { font-family: var(--font-display); font-size: 16px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #f5f0e8; }
+    .card-cat { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #aaa; margin-top: 3px; }
+    .card a.card-link { position: absolute; inset: 0; z-index: 3; }
+    .card:hover .card-overlay { background: linear-gradient(to top, rgba(155,29,32,.75) 0%, transparent 65%); }
+
+    .clients-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: var(--border); }
+    .client-cell { padding: 26px 18px; display: flex; align-items: center; justify-content: center; border-right: var(--border); border-bottom: var(--border); min-height: 72px; }
+    .client-cell:nth-child(4n) { border-right: none; }
+    .client-cell:nth-last-child(-n+4) { border-bottom: none; }
+    .client-name { font-family: var(--font-display); font-size: 15px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--dark); }
+
+    .cta-sec { padding: 56px 40px; display: flex; justify-content: space-between; align-items: flex-end; }
+    .cta-big { font-family: var(--font-display); font-size: 56px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; line-height: .95; }
+    .cta-big span { color: var(--red); }
+    .cta-btn { background: var(--red); color: var(--cream); font-family: var(--font-display); font-size: 14px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; padding: 16px 34px; border: none; cursor: pointer; white-space: nowrap; display: inline-block; }
+
+    footer { padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; }
+    .ft-copy { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--mute); }
+
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; } .nav-links { gap: 20px; } .nav-links a { font-size: 11px; }
+      .page-header, .sec, .cta-sec, footer { padding-left: 20px; padding-right: 20px; }
+      .page-title { font-size: 48px; }
+      .grid { grid-template-columns: 1fr; }
+      .clients-grid { grid-template-columns: repeat(2, 1fr); }
+      .cta-sec { flex-direction: column; align-items: flex-start; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <svg class="doodle-nav" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M42 20c-4 0-7 3-7 7s3 7 7 7 7-3 7-7-3-7-7-7z" stroke="#0d0d0d" stroke-width="2.5" fill="none"/>
+        <path d="M35 34c-6 3-9 9-9 16v14" stroke="#0d0d0d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M49 34c5 2 8 7 9 12" stroke="#0d0d0d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <rect x="52" y="40" width="16" height="11" rx="2" stroke="#9B1D20" stroke-width="2.5" fill="none"/>
+        <circle cx="60" cy="45.5" r="3" stroke="#9B1D20" stroke-width="2" fill="none"/>
+      </svg>
+      <span class="nav-name">Erielle Amboy</span>
+    </a>
+    <div class="nav-links">
+      <a href="professional.html">Professional</a>
+      <a href="creative.html" class="active">Creative</a>
+      <a href="concert.html">Concert</a>
+      <a href="personal-work.html">Personal Work</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-eyebrow">Creative</div>
+    <h1 class="page-title">Social, Campaigns<br>&amp; Music Videos</h1>
+    <p class="page-sub">Directed, filmed, and edited work — campaigns, music videos, and social content built with full creative ownership.</p>
+  </div>
+
+  <div class="reel-sec">
+    <iframe
+      style="display:block;width:100%;aspect-ratio:21/9;border:none;"
+      src="https://www.youtube.com/embed/ijsqGvJY7Wo?autoplay=1&mute=1&loop=1&playlist=ijsqGvJY7Wo&playsinline=1&modestbranding=1&rel=0"
+      allow="autoplay; fullscreen; picture-in-picture"
+      allowfullscreen
+      title="Erielle Amboy — Reel"></iframe>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><span class="sec-title">Selected Projects</span></div>
+    <div class="grid">
+      <div class="card" style="background:#101418;">
+        <div class="card-overlay"></div>
+        <div class="card-info"><div class="card-title">Music Video</div><div class="card-cat">Director · DP · Editor</div></div>
+        <a href="project.html?id=music-video" class="card-link"></a>
+      </div>
+      <div class="card" style="background:#141010;">
+        <div class="card-overlay"></div>
+        <div class="card-info"><div class="card-title">Social Campaign</div><div class="card-cat">Directed · Produced</div></div>
+        <a href="project.html?id=social-campaign" class="card-link"></a>
+      </div>
+      <div class="card" style="background:#120f0e;">
+        <div class="card-overlay"></div>
+        <div class="card-info"><div class="card-title">MassArt Social</div><div class="card-cat">Vertical Content</div></div>
+        <a href="project.html?id=massart-social" class="card-link"></a>
+      </div>
+      <div class="card" style="background:#13100e;">
+        <div class="card-overlay"></div>
+        <div class="card-info"><div class="card-title">Tabletop Jocks</div><div class="card-cat">Social Edit</div></div>
+        <a href="project.html?id=tabletop-jocks" class="card-link"></a>
+      </div>
+      <div class="card" style="background:#0f1213;">
+        <div class="card-overlay"></div>
+        <div class="card-info"><div class="card-title">Instagram Edit</div><div class="card-cat">Edit Only</div></div>
+        <a href="project.html?id=ig-edit" class="card-link"></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-sec">
+    <div>
+      <div class="cta-big">Got a concept<br>to <span>bring to life?</span></div>
+      <span class="hand-note muted" style="margin-top:6px; transform: rotate(-1deg);">let's make something bold</span>
+    </div>
+    <a href="contact.html" class="cta-btn">Get in Touch &rarr;</a>
+  </div>
+
+  <footer>
+    <span class="ft-copy">&copy; 2026 Erielle Amboy</span>
+    <span class="ft-copy">Boston, MA</span>
+  </footer>
+
+</body>
+</html>
