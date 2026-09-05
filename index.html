@@ -72,7 +72,7 @@
     .nav-links a:hover, .nav-links a.active { color: var(--red); }
 
     /* HERO */
-    .hero { background: #0a0a0a; }
+    .hero { background: var(--cream); padding: 0 24px; }
     .hero iframe { display: block; width: 100%; aspect-ratio: 16/9; border: none; }
 
     /* SKINNY TAGLINE RIBBON */
@@ -192,10 +192,10 @@
     .sec-header::after { content: ''; flex: 1; height: 1.5px; background: var(--dark); }
 
     /* WORK GRID */
-    .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .work-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
     .work-card {
       background: #111;
-      aspect-ratio: 16/10;
+      aspect-ratio: 4/3;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -206,13 +206,7 @@
       transition: transform 0.3s ease;
     }
     .work-card:hover { transform: scale(1.01); }
-    .work-card.big { grid-column: span 2; aspect-ratio: auto; min-height: 180px; }
     .work-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.82) 0%, transparent 60%); }
-    .work-card-num {
-      position: absolute; top: 12px; left: 14px;
-      font-size: 10px; font-weight: 700; letter-spacing: .18em;
-      color: #FAF0E6; font-family: var(--font-display); z-index: 2; opacity: .65;
-    }
     .work-card-info { z-index: 2; }
     .work-card-title { font-family: var(--font-display); font-size: 15px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #f5f0e8; }
     .work-card-cat { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #aaa; margin-top: 3px; }
@@ -232,16 +226,9 @@
     .band-r { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: .25em; text-transform: uppercase; color: var(--cream); text-align: right; line-height: 2; opacity: .85; }
 
     /* CLIENTS */
-    .clients-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: var(--border); }
-    .client-cell {
-      padding: 26px 18px;
-      display: flex; align-items: center; justify-content: center;
-      border-right: var(--border); border-bottom: var(--border); min-height: 72px;
-    }
-    .client-cell:nth-child(4n) { border-right: none; }
-    .client-cell:nth-last-child(-n+4) { border-bottom: none; }
-    .client-name { font-family: var(--font-display); font-size: 15px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--dark); }
-    .client-name.more { color: #bbb; }
+    .clients-row { display: flex; align-items: center; justify-content: flex-start; gap: 56px; flex-wrap: wrap; padding: 20px 0; }
+    .clients-row img { height: 42px; width: auto; object-fit: contain; filter: grayscale(100%); opacity: .8; transition: opacity 0.2s, filter 0.2s; }
+    .clients-row img:hover { filter: grayscale(0%); opacity: 1; }
 
     /* SOFTWARE */
     .software-row { display: flex; gap: 10px; flex-wrap: wrap; }
@@ -289,15 +276,11 @@
       .tagline-ribbon-text { font-size: 15px; }
       .title-right { padding-left: 0; }
       .sec { padding: 32px 20px; }
-      .work-grid { grid-template-columns: 1fr; gap: 8px; }
-      .work-card.big { grid-column: span 1; min-height: 140px; }
+      .work-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
       .band { padding: 24px 20px; flex-direction: column; align-items: flex-start; gap: 14px; }
       .band-l { font-size: 30px; }
       .clients-grid { grid-template-columns: repeat(2, 1fr); }
-      .client-cell:nth-child(4n) { border-right: var(--border); }
-      .client-cell:nth-child(2n) { border-right: none; }
-      .client-cell:nth-last-child(-n+4) { border-bottom: var(--border); }
-      .client-cell:nth-last-child(-n+2) { border-bottom: none; }
+      .clients-row { gap: 32px; }
       .cta-sec { flex-direction: column; align-items: flex-start; gap: 28px; padding: 36px 20px; }
       .cta-big { font-size: 46px; }
       footer { padding: 16px 20px; flex-direction: column; gap: 6px; text-align: center; }
@@ -328,7 +311,7 @@
   </nav>
 
   <section class="tagline-ribbon">
-    <span class="tagline-ribbon-text">Film. Edit. <span class="accent">Tell the story.</span></span>
+    <span class="tagline-ribbon-text">My Work</span>
   </section>
 
   <section class="hero">
@@ -363,9 +346,8 @@
       <span class="sec-title">Selected Work</span>
     </div>
     <div class="work-grid">
-      <div class="work-card big" style="background-image:url('https://img.youtube.com/vi/6DAazM3TBR0/hqdefault.jpg');background-size:cover;background-position:center;">
+      <div class="work-card" style="background-image:url('https://img.youtube.com/vi/6DAazM3TBR0/hqdefault.jpg');background-size:cover;background-position:center;">
         <div class="work-card-overlay"></div>
-        <span class="work-card-num">01</span>
         <div class="work-card-info">
           <div class="work-card-title">MassArt — MassHEART Day</div>
           <div class="work-card-cat">Professional</div>
@@ -374,7 +356,6 @@
       </div>
       <div class="work-card" style="background:#141010;"> <!-- TODO: swap in an Instagram screenshot as background-image once you have one -->
         <div class="work-card-overlay"></div>
-        <span class="work-card-num">02</span>
         <div class="work-card-info">
           <div class="work-card-title">MassArt — Social</div>
           <div class="work-card-cat">Creative</div>
@@ -383,16 +364,14 @@
       </div>
       <div class="work-card" style="background-image:url('https://img.youtube.com/vi/H0t0fUyFa4Y/hqdefault.jpg');background-size:cover;background-position:center;">
         <div class="work-card-overlay"></div>
-        <span class="work-card-num">03</span>
         <div class="work-card-info">
           <div class="work-card-title">MiniPCR</div>
           <div class="work-card-cat">Professional</div>
         </div>
         <a href="project.html?id=minipcr-p51" class="card-link" aria-label="MiniPCR"></a>
       </div>
-      <div class="work-card big" style="background-image:url('https://img.youtube.com/vi/r4cR2gwnsKY/hqdefault.jpg');background-size:cover;background-position:center;">
+      <div class="work-card" style="background-image:url('stills/red-thumb.jpg');background-size:cover;background-position:center;">
         <div class="work-card-overlay"></div>
-        <span class="work-card-num">04</span>
         <div class="work-card-info">
           <div class="work-card-title">Personal Work</div>
           <div class="work-card-cat">Short Films &amp; Documentary</div>
@@ -404,7 +383,7 @@
 
   <div class="band">
     <div class="band-l">Filmmaker<br>+ Editor</div>
-    <div class="band-r">Boston, MA<br>Available for Hire<br>Freelance · Full-Time</div>
+    <div class="band-r">Boston, MA<br>Available for Hire</div>
   </div>
 
   <section class="sec">
@@ -412,15 +391,11 @@
       <span class="sec-num">02</span>
       <span class="sec-title">Clients</span>
     </div>
-    <div class="clients-grid">
-      <div class="client-cell"><span class="client-name">MassArt</span></div>
-      <div class="client-cell"><span class="client-name">MiniPCR</span></div>
-      <div class="client-cell"><span class="client-name">BioBuilder</span></div>
-      <div class="client-cell"><span class="client-name">Reebok</span></div>
-      <div class="client-cell"><span class="client-name">Brainchild</span></div>
-      <div class="client-cell"><span class="client-name more">+ More</span></div>
-      <div class="client-cell"></div>
-      <div class="client-cell"></div>
+    <div class="clients-row">
+      <img src="logos/massart.png" alt="MassArt" />
+      <img src="logos/minipcr.png" alt="MiniPCR" />
+      <img src="logos/biobuilder.png" alt="BioBuilder" />
+      <img src="logos/reebok.png" alt="Reebok" />
     </div>
   </section>
 
@@ -435,6 +410,7 @@
       <div class="sw-pill">DaVinci Resolve</div>
       <div class="sw-pill">Final Cut Pro</div>
       <div class="sw-pill">Photoshop</div>
+      <div class="sw-pill">Lightroom</div>
     </div>
   </section>
 

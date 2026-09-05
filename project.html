@@ -57,6 +57,13 @@
     .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
     .video-caption { font-family: var(--font-display); font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--mute); margin-top: 10px; }
 
+    .stills-heading { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); margin: 34px 0 14px; }
+    .stills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .stills-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; background: #111; }
+
+    .poster-wrap { display: flex; justify-content: flex-start; margin-bottom: 28px; }
+    .poster-wrap img { max-width: 280px; width: 100%; height: auto; display: block; border: var(--border); }
+
     .ig-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .ig-tile { border: var(--border); padding: 18px; display: flex; align-items: center; gap: 14px; transition: background 0.2s; }
     .ig-tile:hover { background: rgba(155,29,32,0.04); }
@@ -83,7 +90,7 @@
       .nav-links a { font-size: 11px; }
       .back-row, .page-header, .sec, .cta-sec, footer { padding-left: 20px; padding-right: 20px; }
       .page-title { font-size: 38px; }
-      .video-grid, .ig-grid { grid-template-columns: 1fr; }
+      .video-grid, .ig-grid, .stills-grid { grid-template-columns: 1fr; }
       .cta-sec { flex-direction: column; align-items: flex-start; gap: 24px; }
     }
   </style>
@@ -127,7 +134,8 @@
         meta: ["Documentary", "Filmed + Edited", "2024"],
         desc: "Filmed and edited a spotlight interview for MassArt's MassHEART Day 2024 — a donor-facing piece capturing a personal story and the impact of institutional support.",
         tags: ["Director", "Cinematographer", "Editor", "MassArt"],
-        media: [{ type: "youtube", id: "6DAazM3TBR0", caption: "Tanya Kaya — MassHEART Day 2024" }]
+        media: [{ type: "youtube", id: "6DAazM3TBR0", caption: "Tanya Kaya — MassHEART Day 2024" }],
+        stills: [] // e.g. ["stills/PROJECT-ID-1.jpg", "stills/PROJECT-ID-2.jpg"]
       },
       "massheart-2026": {
         category: "professional", categoryLabel: "Professional",
@@ -137,7 +145,8 @@
         tags: ["Director", "Cinematographer", "Editor", "MassArt"],
         media: [
           { type: "youtube", id: "mGNzBmvh_Ew", caption: "Spice Callahan '27 — Painting" }
-        ]
+        ],
+        stills: [] // e.g. ["stills/PROJECT-ID-1.jpg", "stills/PROJECT-ID-2.jpg"]
       },
       "massheart-provost": {
         category: "professional", categoryLabel: "Professional",
@@ -156,7 +165,8 @@
         media: [
           { type: "youtube", id: "gE3A651mzY4", caption: "BioBuilder Intern Spotlight" },
           { type: "youtube", id: "Cn_l5oOpt9s", caption: "BioBuilder Intern Spotlight" }
-        ]
+        ],
+        stills: [] // e.g. ["stills/PROJECT-ID-1.jpg", "stills/PROJECT-ID-2.jpg"]
       },
       "veracode": {
         category: "professional", categoryLabel: "Professional",
@@ -164,7 +174,8 @@
         meta: ["Corporate", "B-roll Feature"],
         desc: "B-roll footage shot by Erielle featured in Veracode's promotional piece.",
         tags: ["Cinematographer", "Veracode"],
-        media: [{ type: "youtube", id: "3Ygt7zw-Haw", caption: "Veracode — featuring Erielle's b-roll" }]
+        media: [{ type: "youtube", id: "3Ygt7zw-Haw", caption: "Veracode — featuring Erielle's b-roll" }],
+        stills: [] // e.g. ["stills/PROJECT-ID-1.jpg", "stills/PROJECT-ID-2.jpg"]
       },
       "minipcr-p51": {
         category: "professional", categoryLabel: "Professional",
@@ -172,7 +183,8 @@
         meta: ["Corporate", "Stop Motion", "2023"],
         desc: "Filmed and edited a product piece for MiniPCR's P51 Fluorescence Viewer, using stop motion and sound design.",
         tags: ["Filmmaker", "Editor", "Stop Motion", "MiniPCR"],
-        media: [{ type: "youtube", id: "H0t0fUyFa4Y", caption: "MiniPCR — P51 Fluorescence Viewer" }]
+        media: [{ type: "youtube", id: "H0t0fUyFa4Y", caption: "MiniPCR — P51 Fluorescence Viewer" }],
+        stills: [] // e.g. ["stills/PROJECT-ID-1.jpg", "stills/PROJECT-ID-2.jpg"]
       },
       "minipcr-bandit": {
         category: "professional", categoryLabel: "Professional",
@@ -180,7 +192,8 @@
         meta: ["Corporate", "Stop Motion"],
         desc: "Filmed and edited a product overview for MiniPCR's Bandit STEM Electrophoresis Kit, primarily using stop motion.",
         tags: ["Filmmaker", "Editor", "Stop Motion", "MiniPCR"],
-        media: [{ type: "youtube", id: "GCESffKF_m0", caption: "MiniPCR — Bandit STEM Electrophoresis Kit" }]
+        media: [{ type: "youtube", id: "GCESffKF_m0", caption: "MiniPCR — Bandit STEM Electrophoresis Kit" }],
+        stills: [] // e.g. ["stills/PROJECT-ID-1.jpg", "stills/PROJECT-ID-2.jpg"]
       },
       "music-video": {
         category: "creative", categoryLabel: "Creative",
@@ -188,7 +201,8 @@
         meta: ["Music", "Directed · Filmed · Edited"],
         desc: "Full creative ownership — directed, filmed, and edited from concept to delivery.",
         tags: ["Director", "Cinematographer", "Editor"],
-        media: [{ type: "youtube", id: "tIo2v_dbajY", caption: "Music Video" }]
+        media: [{ type: "youtube", id: "tIo2v_dbajY", caption: "Music Video" }],
+        stills: [] // e.g. ["stills/PROJECT-ID-1.jpg", "stills/PROJECT-ID-2.jpg"]
       },
       "social-campaign": {
         category: "creative", categoryLabel: "Creative",
@@ -200,7 +214,8 @@
           { type: "instagram", url: "https://www.instagram.com/reel/DOeoOhmgCHP/", label: "Campaign Reel 01" },
           { type: "instagram", url: "https://www.instagram.com/reel/DOB6GUmgFQy/", label: "Campaign Reel 02" },
           { type: "instagram", url: "https://www.instagram.com/reel/DOjFjsiDFzF/", label: "Campaign Reel 03" }
-        ]
+        ],
+        stills: [] // e.g. ["stills/PROJECT-ID-1.jpg", "stills/PROJECT-ID-2.jpg"]
       },
       "tabletop-jocks": {
         category: "creative", categoryLabel: "Creative",
@@ -208,7 +223,8 @@
         meta: ["Social Media Edit"],
         desc: "Social media edit produced for Tabletop Jocks.",
         tags: ["Editor"],
-        media: [{ type: "drive", url: "https://drive.google.com/file/d/1MZ0WHddcmJh83RRx10zsoOGgAry2TWiI/view", label: "Watch on Google Drive" }]
+        media: [{ type: "drive", url: "https://drive.google.com/file/d/1MZ0WHddcmJh83RRx10zsoOGgAry2TWiI/view", label: "Watch on Google Drive" }],
+        stills: [] // e.g. ["stills/PROJECT-ID-1.jpg", "stills/PROJECT-ID-2.jpg"]
       },
       "ig-edit": {
         category: "creative", categoryLabel: "Creative",
@@ -216,7 +232,8 @@
         meta: ["Social Media", "Edit Only"],
         desc: "Edit for a short-form Instagram reel.",
         tags: ["Editor"],
-        media: [{ type: "instagram", url: "https://www.instagram.com/reel/DY5DLw1xBCn/", label: "View Reel" }]
+        media: [{ type: "instagram", url: "https://www.instagram.com/reel/DY5DLw1xBCn/", label: "View Reel" }],
+        stills: [] // e.g. ["stills/PROJECT-ID-1.jpg", "stills/PROJECT-ID-2.jpg"]
       },
       "massart-social": {
         category: "creative", categoryLabel: "Creative",
@@ -228,47 +245,56 @@
           { type: "instagram", url: "https://www.instagram.com/reel/DX61TmmgicH/", label: "MassArt Reel 01" },
           { type: "instagram", url: "https://www.instagram.com/reel/DXsGIXUEwpe/", label: "MassArt Reel 02" },
           { type: "instagram", url: "https://www.instagram.com/reel/DYDO3iTzUXY/", label: "MassArt Reel 03" }
-        ]
+        ],
+        stills: [] // e.g. ["stills/PROJECT-ID-1.jpg", "stills/PROJECT-ID-2.jpg"]
       },
       "documentary-festival": {
         category: "personal-work", categoryLabel: "Personal Work",
         title: "Red",
-        meta: ["Documentary", "Funded", "Festival Premiere"],
-        desc: "A documentary following an ongoing environmental issue — an invasive species called Dasysiphonia Japonica polluting Popponesset. As a film student, Erielle used the species and ocean water itself to develop the film. Received funding and premiered internationally at a film festival. (Erielle — drop the festival name in here when you've got a sec.)",
+        meta: ["Experimental", "Salem Film Fest 2023", "Official Selection"],
+        desc: "An experimental short film about an invasive seaweed species known as Dasysiphonia Japonica and its pollution of Popponesset. The filmmaker uses the seaweed species and ocean water itself to develop the film. Official Selection, Salem Film Fest 2023.",
         tags: ["Director", "Cinematographer", "Editor"],
-        media: [{ type: "youtube", id: "r4cR2gwnsKY", caption: "Red" }]
+        media: [{ type: "youtube", id: "r4cR2gwnsKY", caption: "Red" }],
+        stills: [] // e.g. ["stills/PROJECT-ID-1.jpg", "stills/PROJECT-ID-2.jpg"]
       },
       "short-film-1": {
         category: "personal-work", categoryLabel: "Personal Work",
         title: "Discovering Spring",
         meta: ["Short Film", "Trailer"],
-        desc: "Trailer for the short film Discovering Spring.",
-        tags: ["Director", "Editor"],
-        media: [{ type: "youtube", id: "SXRxtIK5pGY", caption: "Discovering Spring — Trailer" }]
+        desc: "Two best friends realize their feelings for each other as they write a romantic script together. Starring Hannah Tirrell and Luciano DaSilva.",
+        tags: ["Director", "Cinematographer", "Editor"],
+        poster: "stills/discovering-spring-poster.jpg",
+        media: [{ type: "youtube", id: "SXRxtIK5pGY", caption: "Discovering Spring — Trailer" }],
+        stills: ["stills/discovering-spring-1.jpg", "stills/discovering-spring-2.jpg", "stills/discovering-spring-3.jpg", "stills/discovering-spring-4.jpg", "stills/discovering-spring-5.jpg"]
       },
       "short-film-2": {
         category: "personal-work", categoryLabel: "Personal Work",
         title: "Searching for Autumn",
-        meta: ["Short Film", "Trailer"],
-        desc: "Trailer for the short film Searching for Autumn.",
-        tags: ["Director", "Editor"],
-        media: [{ type: "youtube", id: "eWbJ5U8mXlM", caption: "Searching for Autumn — Trailer" }]
+        meta: ["Short Film", "Official Selection"],
+        desc: "A sweet coming-of-age story where, after a recent heartbreak, Ella is having trouble healing and moving on. Her friend Sophia convinces her that they go off the grid together to leave behind their problems. Official Selection — Lift-Off Global Network Sessions 2023, and Student World Impact Film Festival 2023.",
+        tags: ["Director", "Cinematographer", "Editor"],
+        poster: "stills/searching-for-autumn-poster.jpg",
+        media: [{ type: "youtube", id: "eWbJ5U8mXlM", caption: "Searching for Autumn — Trailer" }],
+        stills: ["stills/searching-for-autumn-1.jpg", "stills/searching-for-autumn-2.jpg", "stills/searching-for-autumn-3.jpg", "stills/searching-for-autumn-4.jpg", "stills/searching-for-autumn-5.jpg"]
       },
       "short-film-3": {
         category: "personal-work", categoryLabel: "Personal Work",
         title: "Chasing Talon",
         meta: ["Short Film"],
-        desc: "A homesick young Filipino-American boy and his native Filipina cousin adventure through the foreign countryside of the Philippines in search of hidden waterfalls.",
-        tags: ["Director", "Editor"],
-        media: [{ type: "youtube", id: "sPHsj_GJTZw", caption: "Chasing Talon" }]
+        desc: "A homesick young Filipino-American boy and his native Filipina cousin adventure through the foreign countryside of the Philippines in search of hidden waterfalls. Starring Eleazer Amboy and Rowan Liquigan-Amboy. Music by Axel Castro.",
+        tags: ["Director", "Cinematographer", "Editor", "Writer"],
+        poster: "stills/chasing-talon-poster.jpg",
+        media: [{ type: "youtube", id: "sPHsj_GJTZw", caption: "Chasing Talon" }],
+        stills: ["stills/chasing-talon-1.jpg", "stills/chasing-talon-2.jpg", "stills/chasing-talon-3.jpg", "stills/chasing-talon-4.jpg", "stills/chasing-talon-5.jpg", "stills/chasing-talon-6.jpg"]
       },
       "short-film-4": {
         category: "personal-work", categoryLabel: "Personal Work",
         title: "Imagine | A Portraiture",
         meta: ["Short Film"],
         desc: "An older sister talks to her younger brother about going to space.",
-        tags: ["Director", "Editor"],
-        media: [{ type: "youtube", id: "zGuh4RbxUE4", caption: "Imagine | A Portraiture" }]
+        tags: ["Director", "Cinematographer", "Editor"],
+        media: [{ type: "youtube", id: "zGuh4RbxUE4", caption: "Imagine | A Portraiture" }],
+        stills: [] // e.g. ["stills/PROJECT-ID-1.jpg", "stills/PROJECT-ID-2.jpg"]
       }
     };
 
@@ -320,6 +346,18 @@
         mediaHTML = `<p class="hand-note muted">video coming soon — check back shortly</p>`;
       }
 
+      let stillsHTML = "";
+      if (p.stills && p.stills.length) {
+        stillsHTML = `
+          <div class="stills-heading">Stills</div>
+          <div class="stills-grid">${p.stills.map(src => `<img src="${src}" alt="${p.title} still" loading="lazy" />`).join("")}</div>
+        `;
+      }
+
+      const posterHTML = p.poster
+        ? `<div class="poster-wrap"><img src="${p.poster}" alt="${p.title} poster" /></div>`
+        : "";
+
       app.innerHTML = `
         <div class="back-row"><a href="${backHref}" class="back-link">&larr; Back to ${p.categoryLabel}</a></div>
         <div class="page-header">
@@ -328,9 +366,11 @@
           <div class="page-meta">${p.meta.map(m => `<span class="meta-pill">${m}</span>`).join("")}</div>
         </div>
         <div class="sec">
+          ${posterHTML}
           <p class="project-desc">${p.desc}</p>
           <div class="project-tags">${p.tags.map(t => `<span class="project-tag">${t}</span>`).join("")}</div>
           ${mediaHTML}
+          ${stillsHTML}
         </div>
         <div class="cta-sec">
           <div class="cta-big">Like what<br>you <span>see?</span></div>
